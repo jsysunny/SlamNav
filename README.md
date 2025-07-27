@@ -85,129 +85,50 @@
 
 
 &nbsp;
-### 📷 Vision model 
-**1. Object Detection (YOLOv11)**  
-- 목적: 약 서랍의 라벨 텍스트(예: dermatitis, cold 등)를 박스 단위로 탐지  
-- 모델: `yolov11n.pt`  
-- Dataset: 20장 → 증강하여 총 60장 (Train 70% / Val 30%)  
-- 하이퍼파라미터:  
-  - Epoch: 200  
-  - Batch size: 16  
-  - IOU threshold: 0.5  
-- 성능 지표:  
-  - mAP@0.5 = **0.995**  
-- 결과: 약 서랍 위에 부착된 라벨을 정확히 탐지하여 위치 기반 분류 가능  
 
-<img width="600" height="300" alt="image" src="https://github.com/user-attachments/assets/66f84a6b-4087-4709-824d-bd150fb0c091" />
-
-<img width="400" height="400" alt="image" src="https://github.com/user-attachments/assets/8e911d69-6535-48f5-a8ee-90e72b922055" />
+### GUI 관리자- 차량 감지 dataset 
+<img width="1245" height="525" alt="image" src="https://github.com/user-attachments/assets/78002b5b-3bd6-4f4b-b06f-a6e4219b3b1a" />
 
 &nbsp;
 
-**2. Text Classification (ResNet18)**  
-- 목적: 탐지된 라벨 이미지(text 박스)를 4종류 약 분류로 분류  
-- 약 종류: cold, dermatitis, dyspepsia, diarrhea  
-- 모델: `ResNet18`  
-- Dataset: 20장 → 증강하여 총 80장  
-- 하이퍼파라미터:  
-  - Epoch: 22  
-- 성능 지표:  
-  - Accuracy = **1.00**  
-- 결과: OCR된 라벨 이미지를 정확하게 약 카테고리로 분류
+### Vision- 주차공간 object detection
 
-<img width="600" height="300" alt="image" src="https://github.com/user-attachments/assets/e71ab87e-50ae-4790-8da9-262e386c6833" />
+<img width="1245" height="525" alt="image" src="https://github.com/user-attachments/assets/7046baad-fd9c-4c19-a83f-5dea54de9ae9" />
 
-<img width="400" height="400" alt="image" src="https://github.com/user-attachments/assets/0881a9b6-bd4d-4b7a-87de-723dd089fecd" />
+<img width="1245" height="540" alt="image" src="https://github.com/user-attachments/assets/97346b06-e019-4ced-b0e8-60c5f698fada" />
+
+<img width="1292" height="281" alt="image" src="https://github.com/user-attachments/assets/758070db-1cad-4e2a-88fe-ca8a3ec3cd86" />
 
 &nbsp;
 
-**3. Segmentation (YOLOv11s)**  
-- 목적: 약 서랍 내부 의약품 패키지를 탐지 및 회전 각도 추정  
-- 모델: `yolov11s.pt`  
-- Dataset: 20장 → 증강하여 총 60장 (Train 70% / Val 30%)  
-- 하이퍼파라미터:  
-  - Epoch: 200  
-  - Batch size: 16  
-  - IOU threshold: 0.5  
-- 성능 지표:  
-  - mAP@0.5 ≈ **0.992 ~ 0.993**  
+#### 주차(Disabled, Normal, EV) - 모델 선정 과정
 
-###  🤧 [1. Cold]  
-- 탐지 클래스: `amoxicile_tab`, `ponstar_tab`  
-- mAP@0.5 = **0.993**
+<img width="1133" height="511" alt="image" src="https://github.com/user-attachments/assets/e015f439-020c-4a47-842a-0ffe2b53592b" />
 
-<img width="600" height="300" alt="image" src="https://github.com/user-attachments/assets/8b037393-0f9a-4d26-9057-0d45f7e7565d" />
+<img width="1225" height="553" alt="image" src="https://github.com/user-attachments/assets/f287d0a9-5db4-4dd0-82fa-049192a576fb" />
 
-<img width="400" height="400" alt="image" src="https://github.com/user-attachments/assets/5c5dcb3d-b395-46d7-a0c6-c1176115ed90" />
+&nbsp;
 
----
-
-### 🤕 [2.Dermatitis]  
-- 탐지 클래스: `monodoxy_cap`, `ganakan_tab`  
-- mAP@0.5 = **0.992**
-
-<img width="600" height="300" alt="image" src="https://github.com/user-attachments/assets/307c1f0a-282a-494d-b599-4d93ee1b6a0a" />
-
-<img width="400" height="400" alt="image" src="https://github.com/user-attachments/assets/1057fded-ca00-4450-acf2-76cc6cb6fdb8" />
-
-
----
-
-### 🤢 [3.Dyspepsia]  
-- 탐지 클래스: `mogum_tab`, `medicostenter`, `nexilen_tab`  
-- mAP@0.5 = **0.992**
-
-<img width="600" height="300" alt="image" src="https://github.com/user-attachments/assets/e7440bc4-85fe-4044-a7bc-4d44d5a025e5" />
-
-<img width="400" height="400" alt="image" src="https://github.com/user-attachments/assets/ba31c0f3-0e59-4341-ab07-5a2da85ebbef" />
-
----
-
-### 💩 [4.Diarrhea]  
-- 탐지 클래스: `otillen_tab`, `famodine`, `somnux_scop`  
-- mAP@0.5 = **0.992**
-
-<img width="600" height="300" alt="image" src="https://github.com/user-attachments/assets/65cdba23-eee7-4705-8c98-2864ebea89bc" />
-
-<img width="400" height="400" alt="image" src="https://github.com/user-attachments/assets/12101f88-5f75-426c-90d3-277298caa9a6" />
+#### 주차(Disabled, Normal, EV) 경량화 - size 640
+<img width="1225" height="290" alt="image" src="https://github.com/user-attachments/assets/fa39804e-624d-4cfa-b4fb-55dd2f57ee89" />
 
 
 &nbsp;
 
-### 🗣 Voice model 
+#### 주차(Disabled, Normal, EV) 경량화 - size 320
+<img width="1225" height="546" alt="image" src="https://github.com/user-attachments/assets/37a35c70-9827-4d82-8b70-d7393793dc4b" />
 
-#### 🎙 1. OpenWakeWord  
-- **모델명**: `hello_rokey_8332_32.tflite`  
-- **기능**: 웨이크워드 “hello rokey” 감지를 위한 TFLite 기반 모델  
-- **동작 방식**:  
-  - 0.1초 간격으로 마이크 입력 버퍼에서 오디오 청크 수신  
-  - `model.predict()`를 통해 inference 수행  
-  - confidence score ≥ 0.6 → 웨이크워드 감지로 간주  
-
----
-
-#### 📝 2. OpenAI Whisper  
-- **모델명**: `whisper-1`  
-- **기능**: 녹음된 오디오 파일 (예: `input.wav`)을 텍스트로 변환 (STT)  
-
----
-
-#### 🤖 3. GPT-4o  
-- **모델명**: `gpt-4o`  
-- **기능**:  
-  - 사용자의 음성 명령에서 의약품 이름 및 수량 추출  
-  - 의약품 종류 분류 (전문의약품 vs 일반의약품)  
-  - 증상 입력 시 약 추천  
-  - 약 설명 요청 시 효능·주의사항 안내  
-
----
-
-#### 🔊 4. Microsoft Edge TTS  
-- **모델명**: `ko-KR-SunHiNeural`  
-- **기능**:  
-  - TTS(Text-to-Speech)를 통해 사용자에게 음성 안내 출력
-  
 &nbsp;
+
+#### 주차(Disabled, Normal, EV) 경량화 - compressed
+<img width="1281" height="546" alt="image" src="https://github.com/user-attachments/assets/5c3c9a39-06de-4003-b8c7-eadc7678c5a0" />
+
+<img width="1281" height="546" alt="image" src="https://github.com/user-attachments/assets/97f71119-ff49-4416-afcc-30236d2897d3" />
+
+&nbsp;
+#### 주차 object detection 결론 : size 320, compressed
+
+
 ## 5. 🧭 동작 흐름 요약
 
 <img width="488" height="689" alt="image" src="https://github.com/user-attachments/assets/8ae44e59-4aa9-436d-88e9-9e8f1de6b939" />
@@ -348,7 +269,7 @@ ros2 run rokey_pjt sc_follow_waypoints
 > https://youtu.be/YpOET5k4NcU
 
 ### 발표영상
->
+> https://youtu.be/5f-ziTxzPM4
 
 &nbsp;
 ## 8. 🌟 기대 효과
