@@ -279,298 +279,135 @@
 
 &nbsp;
 
-
-### 📋 전문의약품 노드 
-
-1. **사람 감지**  
-   - 초음파 센서 → robot  
-   - 상태 메시지: `state="detected"` ROS topic publish
-
-2. **QR 및 안내 음성 출력**  
-   - robot → vision (`detect_qr`)  
-   - robot → voice (처방전 안내 음성 출력)  
-   - `robot_state = "check_qr"`
-
-3. **QR 코드 인식**
-
-4. **서랍 텍스트 인식 위치 지정**  
-   - vision → robot (`qr_info`)
-
-5. **서랍 텍스트 인식 실행**  
-   - robot → vision  
-   - `robot_state = "check_text"`
-
-6. **서랍 열기 및 약 탐지 위치로 이동**  
-   - robot → 서랍 앞
-
-7. **약 위치 탐지 (YOLOv11)**  
-   - robot → vision  
-   - `robot_state = "detect_pill"`
-
-8. **약 위치로 이동 및 자세 정보 추출**  
-   - vision → robot  
-   - 결과값: (x, y, theta)
-
-9. **약 집기 + 비닐봉투에 담기 + 서랍 닫기**
-
-10. **복약 설명 음성 출력**  
-    - robot → voice (`task_state`)
-
-&nbsp;
-
-### 📋 일반의약품 노드
-
-1. **사람 감지**  
-   - 초음파 센서 → robot  
-   - 상태 메시지: `state="detected"`
-
-2. **QR 인식 및 일반약 요청 음성 출력**  
-   - robot → vision / voice  
-   - `robot_state = "check_qr"`
-
-3. **음성 명령 수신 (의약품 요청)**  
-   - voice → robot  
-   - topic: `medicine`
-
-4. **로봇이 선반 앞으로 이동**
-
-5. **선반 인식 준비**  
-   - robot → vision  
-   - `robot_state = "shelf_state"`
-
-6. **약 위치 탐지 (YOLOv11)**  
-   - vision → robot  
-   - 결과: `medicine_loc`
-
-7. **약 pick & place**  
-   - robot → vision  
-   - `robot_state = "pick_medicine"`
-
-8. **외력 인식 시 로봇 순응 제어 실행 (Gripper Release)**
-
-9. **약 설명 음성 출력**  
-   - robot → voice (`task_state`)
-
-&nbsp;
-
-### 💊 전문의약품 동작 과정 
-
-1. **초음파로 사람 감지**  
-   - 5~37cm 거리에서 사용자가 3초 이상 머물면 감지  
-   - moving average 필터 사용  
-   - 로봇에 메시지 전송: state="detected"
-
-2. **처방전 QR 인식 자세 및 안내 음성 출력**  
-   - 로봇의 동작은 모두 moves로 자연스럽게 연결
-   - 예:  
-      ```
-      voice: "안녕하세요 rokey약국입니다. QR을 스캔하거나 hello rokey를 말해주세요."
-      ```
-
-3. **QR 찍기 (처방전 인식)**  
-   - 처방전 파싱 → json 코드
-   
-   <img width="600" height="300" alt="image" src="https://github.com/user-attachments/assets/1fa064a8-69eb-4dfa-a694-9cf27adfd11f" />
-
-   - 예시:
-     ```json
-     {
-       "이름": "홍길동",
-       "생년": "010204",
-       "atc": "A02XA01",
-       "1회투약량": 1,
-       "1일투약횟수": 3,
-       "총투약일수": 1
-     }
-     ```
-
-4. **서랍 바라보는 모션**  
-
-5. **서랍 text 인식 후 열기**  
-   - 처방된 ATC 코드, 이름, 증상을 딕셔너리로 저장
-   - 처방전 atc 코드 -> 증상 == yolo text 증상
-   - text 증상 (x,y) 가 4분면 중 하나 해당 -> 지정 좌표 이동
-
-6. **서랍 안에 바라보는 위치 조정**  
-   - 4개의 서랍 segmentation 좌표로 이동
-
-7. **약 탐지**  
-   - 약 segmentation mask 적용  
-   - A02XA01 1 1 1 → nexilan_tab 탐지  
-   - 타원형: x, y, theta 추출  
-   - camera calibration 후 3D 좌표로 로봇 이동
-   - segmentation mask 사용하여 타원형 알약의 포즈 계산 (deg) -> 로봇의 6축이 해당 deg 만큼 회전 -> girp
-
-8. **약 이동 및 집음**  
-   - gripper 알약 크기에 맞춰 조정 -> force control 과 compliance로 알약 세밀하게 집기
-   - `A02X1 1 1 1 -> 1번 1번 투약 1일치`
-   - nexilan_tab( index=1/ total 1) -> 점심 이동
-   - 흔드는 모션 -> 약이 잘 떨어지지 않음 방지  
-
-9. **다른 약도 반복 탐지 및 분류**
-   - A07FA01 1 2 1 -> medilacsenteric_tab 탐지
-   - 타원형 캡슐-> center x, y, theta 전송 -> camera calibration -> 3d 좌표로 로봇 이동
-
-10. **약 이동 및 집음**
-    - gripper 알약 크기에 맞춰 조정
-    - `A07FA01 1 2 1 ->1번 2번 투약 1일치`
-    - nexilan_tab( index=1/ total 2)-> 아침
-    - nexilan_tab( index=2/ total 2)-> 저녁
-
-11. **다른 약도 반복 탐지 및 분류**
-    - gripper 알약 크기에 맞춰 조정
-    - A02AA04 1 3 1 ->1번 3번 투약 1일치
-    - A02AA04 1 3 1 -> magmil_tab 탐지
-    - 원형 캡슐-> center x, y 전송 -> camera calibration -> 3d 좌표로 로봇 이동 (원형은 theta 무시)
-
-12. **약 이동 및 집음**
-    - gripper 알약 크기에 맞춰 조정
-    - `A02AA04 1 3 1 ->1번 3번 투약 1일치`
-    - magmil_tab( index=1/ total 3)-> 아침
-    - magmil_tab( index=2/ total 3)-> 저녁
-    - magmil_tab( index=3/ total 3)-> 저녁
-      
-13. **선반 넣기**  
-    - 로봇이 약을 force control로 집음 -> 선반이 밑으로 내려가게됨  
-    - 선반을 잡고 올리기 -> 밀어넣기
-
-14. **포장 대기 상태 이동**  
-    - 모든 약 개수 약 주걱으로 이동 후 포장 상태로 전환
-
-15. **약사가 약 포장 후 외력 감지**
-    - 약사가 약 검사 및 약 비닐 → 외력으로 포장 완료 알림   
-    - 외력 감지 시: `check_force_condition x축 = true`  
-    - 외력 감지 후 외력 해제 
-
-17. **약 봉투로 이동 및 설명**  
-    - 외력 해제 시 약 설명 voice 출력  
-    - 예:  
-      ```
-      voice: "nexilan_tab은 위염치료제이며 다른 약 복용시 위 손상을 막아줍니다. 아침 점심 저녁 하루 3번 복용하세요.
-             감사합니다 안녕히 가세요"
-      ```
-
-### 🧾 일반의약품 동작 과정
-
-1. **초음파로 사람 감지**  
-   - 5~37cm 거리에서 사용자가 3초 이상 머물면 감지  
-   - moving average 필터 사용  
-   - 로봇에 메시지 전송: `state="detected"`
-
-2. **QR 인식 자세 안내 및 음성 출력**  
-   - 로봇의 동작은 모두 `moves`로 자연스럽게 연결  
-   - 음성 안내:  
-     ```
-     voice: "안녕하세요 rokey약국입니다. QR을 스캔하거나 hello rokey를 말해주세요."
-     ```
-
-3. **증상 입력 (voice: hello rokey)**  
-   - 사용자가 음성으로 증상 입력  
-   - 예시:  
-     ```
-     "나 머리 아파 / 열이 나 / 감기 걸린 것 같아"
-     ```
-
-4. **voice 기반 의약품 추천**  
-   - 증상 기반 추천 음성 출력  
-   - 예시:  
-     ```
-     voice: "추천약은 타이레놀(해열진통제)과 판콜에이(감기약)입니다. 증상이 계속되면 병원에 방문하세요."
-     ```
-
-5. **voice로 추천 의약품 구매 의사 확인**  
-   - 사용자 예시:  
-     ```
-     "타이레놀 줄래요?"
-     ```  
-   - 로봇 응답:  
-     ```
-     "추천약은 타이레놀입니다. 어떤 약을 드릴까요?"
-     ```
-
-6. **voice로 의약품 구매 명령**  
-   - 사용자 예시:  
-     ```
-     "타이레놀 한 개 줘"
-     ```  
-   - 로봇 응답:  
-     ```
-     "타이레놀을 준비하겠습니다."
-     ```
-
-7. **선반 위치 이동 및 의약품 인식**  
-   - 선반 이동 후 YOLO로 의약품 위치 인식  
-   - 약품 좌표 (x, y)가 4분면 중 하나에 해당 → 지정 좌표로 이동  
-
-8. **의약품 꺼내기 및 가져다주기**  
-   - 물품 높이에 따라 그리퍼 너비 조정  
-   - 2층: `movec`로 문턱 넘기 -> movej
-   - 1층: `movej`  
-
-9. **x축 외력 감지 시 약 놓기 및 설명 출력**  
-   - 사용자가 손 흔들기 등으로 외력 제공  
-   - 조건 감지: `check_force_condition == true` (x축 외력 감지)  
-   - 로봇이 약 내려놓고 약 설명 출력  
-   - 예시:  
-     ```
-     voice: "해당 약은 해열진통제이며 진통 완화 및 열 내림 효과가 있습니다. 감사합니다 안녕히 가세요."
-     ```
-
 ## 6. 💻 코드 실행 방법
 
-### 🤖 Robot Control Node
-- 코드: [`main_robot_control`](./Rokey_Pharmacy-main/rokey_project/rokey_project/main_robot_control.py)
+🅿️ 주차 공간 탐지 (YOLO + Depth)
+- 모델: 320_v8n.pt
+- 학습 코드: train.py
+- 실행 코드: yolo_detect.py
 
+- 코드: [`yolo_detect`](./rokey_ws/src/rokey_pjt/rokey_pjt/yolo_detect.py)
 ```bash
-ros2 run rokey_project main_robot_control
-```
-
-### 👁️ Vision Node (Realsense)
-- 코드: [`main_vision_realsense`](./Rokey_Pharmacy-main/rokey_project/rokey_project/main_vision_realsense.py)
-
-```bash
-ros2 run rokey_project main_vision_realsense
+ros2 run rokey_pjt yolo_detect
 ```
 
 &nbsp;
-## 7. 📷 시연 영상 / 이미지
-> https://youtu.be/qz6bvLREzT4
 
-> https://youtu.be/YkDVQ3afCMA
+📷 번호판 인식 (YOLO + OCR)
+- 모델: best_320.pt
+- 학습 코드: yolo_train.ipynb
+- 실행 코드: detect_car_info2.py
+
+- 코드: [`detect_car_info2`](./rokey_ws/src/rokey_pjt/rokey_pjt/detect_car_info2.py)
+```bash
+ros2 run rokey_pjt detect_car_info2
+```
+
+&nbsp;
+
+🧠 TF Classifier - 전면
+- 코드: [`detect_car_info2`](./rokey_ws/src/rokey_pjt/rokey_pjt/detect_ps_front.py)
+  
+```bash
+ros2 run rokey_pjt detect_ps_front
+```
+
+&nbsp;
+
+
+🖥️ GUI
+- 코드: [`detect_car_info2`](./rokey_ws/src/rokey_pjt/rokey_pjt/User_GUI/parking_gui.py)
+  
+```bash
+python3 parking_qui.py
+```
+
+&nbsp;
+
+
+🚗 입차 주행 제어
+- 코드: [`sc_follow_waypoints2_1`](./rokey_ws/src/rokey_pjt/rokey_pjt/sc_follow_waypoints2_1.py)
+  
+```bash
+ros2 run rokey_pjt sc_follow_waypoints2_1
+```
+
+&nbsp;
+
+🚙 출차 주행 제어
+- 코드: [`sc_follow_waypoints`](./rokey_ws/src/rokey_pjt/rokey_pjt/sc_follow_waypoints.py)
+  
+```bash
+ros2 run rokey_pjt sc_follow_waypoints
+```
+
+&nbsp;
+
+## 7. 📷 시연 영상 / 이미지
+### 시연영상
+> https://youtu.be/YpOET5k4NcU
+
+### 발표영상
+>
 
 &nbsp;
 ## 8. 🌟 기대 효과
 
-- 약물 사고 예방 → 사망 사고, 부작용 최소화
-- 약사의 단순 반복업무 감소 → 핵심 업무 집중 가능
-- 복약 실수 줄이고, 독립적인 복약 가능
-- 팬데믹 등 상황에서 비대면 복약 시스템 활용 가능
+- **AI Vision과 Navigation을 통한 실시간 자율 입·출차 구현**  
+- **YOLO 객체 인식, TF, Depth 계산, 장애물 회피까지 수업 핵심 요소 모두 반영**  
+- **주차 공간 내 정밀 위치 지정 → 안정적인 180도 회전 및 전진 주차 성공률 향상**  
+- **GUI와 음성 피드백, DB 연동 등 사용자 친화성 강화 요소 적극 적용**
+
+&nbsp;
 
 ### ⚙️ 활용 방안
 
-- 약국 내 조제 공정
-- 의료 어시스턴트(수술, 차트)
-- 창고 정리
-- 선반/서랍 정리
+- **AI 자율주행 기반 스마트 주차 시스템**
+- **비대면 주차 서비스 로봇**
+- **지하 주차장 자동 안내 및 충전 공간 정렬**
+- **로봇-서버-DB 연동을 통한 실시간 주차관리 시스템**
+
+&nbsp;
+
+### ⚠️ 잘한 점
+
+- **[1. AI Vision 인식 정확도 및 Depth 계산]**  
+  → 객체 인식 정확도 90~95%, 3x3 거리 계산 적용으로 거리 추정 오차 최소화
+
+- **[2. TF Transform 기반 위치 이동 수행]**  
+  → base_link에서 목표 좌표까지 정확하게 TF 계산 → Nav2로 목적지 주행 성공률 높음
+
+- **[3. 로봇 간 협업 연동]**  
+  → 입차/출차용 로봇의 DB 연동 및 상태 공유 구현 → 병렬 처리 기반 협업 가능
+
+- **[4. One Take 시연 영상]**  
+  → 실제 입차부터 출차까지 논스톱 데모 영상 제작 → 실전 수준 데모 구현 능력 입증
+
+- **[5. 시스템 구성 및 요구사항 충실 반영]**  
+  → 아키텍처, 시나리오, 노드 간 연결 흐름이 명확하고 문서화 완성도 높음
+
+- **[6. Flowchart 및 시나리오 구성]**  
+  → 전체 기능 흐름도와 각 기능별 상세 설명 및 시나리오 스크립트 명확 작성
+
+- **[7. 발표 시간 및 형식 준수]**  
+  → 자료 통일성 확보, 제한 시간 내 발표 및 질의응답 대응 능력 우수
+
+- **[8. 헬퍼 기능 추가]**  
+  → GUI, 경고음, DB 저장 등 실사용 시 고려되는 확장 기능 탑재
 
 
-### ⚠️ 잘한 점 / 아쉬운 점
-
-- **약 모양 다양함 → segmentation으로 위치, 자세 추정 → 로봇 세밀하고 정밀한 조정 가능**
-- **다양한 센서 이용 → voice, vision, sleep → 저전력 구동**
-- **각 detection에 맞는 모델 사용 → ai 판단 → 증상, 전문 의약품, 일반의약품 다양**
-
-🧩 **한계 및 개선점**:
-- 그리퍼의 크기가 약을 집기에 커서 겹쳐있는 약이나, 붙어있는 약을 집을 때 정확히 집지 못하는 점
-- 기능 추가 필요 (증상 → 처방전 → 약 종류 자동 판단 등 통합 처리)
-- 예외처리 부족 (약 부족 상황에서 대체 약 제안, 의약품 추가 구매 유도 등)
+&nbsp;
 
 
-### 🤝 팀 완성도 평가 및 느낀 점
+🧩 **한계 및 개선점**
 
-- **백종하**: 팀원과의 활발한 소통이 중요함을 느낌. 커뮤니케이션이 순조롭게 진행됨  
-- **정서윤**: 계획과 실제 운영에서 발생한 문제를 유연하게 대응하며 실무형 문제 해결 역량 체감  
-- **정민섭**: 협력 과정에서 중요한 점은 팀원 간 보완과 통합이었음을 실감함  
-- **서형원**: 협동 로봇 기능을 잘 활용하고 추가 의견을 반영하며 팀워크 완성도 향상
+- **네트워크 품질 저하 시 시스템 안정성 저하**  
+  → 실내 와이파이 환경에서 로봇이 끊김 없이 이동하려면 추가적 예외처리 필요
+
+- **TF 계산 시 간헐적 오차**  
+  → 실시간 센서 노이즈에 의해 소폭 오차 발생 → 필터링 기법 도입 고려
+
+- **하드웨어 의존성**  
+  → 수레 걸기/빼기 동작의 정확도는 물리적인 제약을 크게 받음 → 그리퍼 보완 필요
 
 &nbsp;
