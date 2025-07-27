@@ -306,7 +306,7 @@ ros2 run rokey_pjt detect_car_info2
 &nbsp;
 
 🧠 TF Classifier - 전면
-- 코드: [`detect_car_info2`](./rokey_ws/src/rokey_pjt/rokey_pjt/detect_ps_front.py)
+- 코드: [`detect_ps_front`](./rokey_ws/src/rokey_pjt/rokey_pjt/detect_ps_front.py)
   
 ```bash
 ros2 run rokey_pjt detect_ps_front
@@ -316,7 +316,7 @@ ros2 run rokey_pjt detect_ps_front
 
 
 🖥️ GUI
-- 코드: [`detect_car_info2`](./rokey_ws/src/rokey_pjt/rokey_pjt/User_GUI/parking_gui.py)
+- 코드: [`parking_qui`](./rokey_ws/src/rokey_pjt/rokey_pjt/User_GUI/parking_gui.py)
   
 ```bash
 python3 parking_qui.py
