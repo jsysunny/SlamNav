@@ -1,0 +1,49 @@
+[0.659s] Invoking command in '/home/rokey/rokey_ws/build/rokey_pjt': PYTHONPATH=/home/rokey/rokey_ws/build/rokey_pjt/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/rokey/rokey_ws/install/rokey_pjt/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/rokey/rokey_ws/build/rokey_pjt/build --no-deps symlink_data
+[0.818s] running develop
+[0.905s] running egg_info
+[0.905s] creating rokey_pjt.egg-info
+[0.905s] writing rokey_pjt.egg-info/PKG-INFO
+[0.905s] writing dependency_links to rokey_pjt.egg-info/dependency_links.txt
+[0.905s] writing entry points to rokey_pjt.egg-info/entry_points.txt
+[0.905s] writing requirements to rokey_pjt.egg-info/requires.txt
+[0.906s] writing top-level names to rokey_pjt.egg-info/top_level.txt
+[0.906s] writing manifest file 'rokey_pjt.egg-info/SOURCES.txt'
+[0.906s] reading manifest file 'rokey_pjt.egg-info/SOURCES.txt'
+[0.907s] writing manifest file 'rokey_pjt.egg-info/SOURCES.txt'
+[0.907s] running build_ext
+[0.908s] Creating /home/rokey/rokey_ws/install/rokey_pjt/lib/python3.10/site-packages/rokey-pjt.egg-link (link to .)
+[0.908s] Installing beep script to /home/rokey/rokey_ws/install/rokey_pjt/lib/rokey_pjt
+[0.908s] Installing capture_image script to /home/rokey/rokey_ws/install/rokey_pjt/lib/rokey_pjt
+[0.908s] Installing cont_cap_image script to /home/rokey/rokey_ws/install/rokey_pjt/lib/rokey_pjt
+[0.908s] Installing depth_checker script to /home/rokey/rokey_ws/install/rokey_pjt/lib/rokey_pjt
+[0.908s] Installing depth_checker_click script to /home/rokey/rokey_ws/install/rokey_pjt/lib/rokey_pjt
+[0.908s] Installing det_obj script to /home/rokey/rokey_ws/install/rokey_pjt/lib/rokey_pjt
+[0.909s] Installing det_obj_thread script to /home/rokey/rokey_ws/install/rokey_pjt/lib/rokey_pjt
+[0.909s] Installing det_obj_track script to /home/rokey/rokey_ws/install/rokey_pjt/lib/rokey_pjt
+[0.909s] Installing detect_car_info script to /home/rokey/rokey_ws/install/rokey_pjt/lib/rokey_pjt
+[0.909s] Installing detect_car_info2 script to /home/rokey/rokey_ws/install/rokey_pjt/lib/rokey_pjt
+[0.909s] Installing detect_ps_front script to /home/rokey/rokey_ws/install/rokey_pjt/lib/rokey_pjt
+[0.909s] Installing detect_ps_map script to /home/rokey/rokey_ws/install/rokey_pjt/lib/rokey_pjt
+[0.909s] Installing object_xyz script to /home/rokey/rokey_ws/install/rokey_pjt/lib/rokey_pjt
+[0.909s] Installing parking_gui script to /home/rokey/rokey_ws/install/rokey_pjt/lib/rokey_pjt
+[0.909s] Installing rotation_test script to /home/rokey/rokey_ws/install/rokey_pjt/lib/rokey_pjt
+[0.909s] Installing sc_follow_waypoints script to /home/rokey/rokey_ws/install/rokey_pjt/lib/rokey_pjt
+[0.909s] Installing sc_follow_waypoints2 script to /home/rokey/rokey_ws/install/rokey_pjt/lib/rokey_pjt
+[0.909s] Installing sc_follow_waypoints2_1 script to /home/rokey/rokey_ws/install/rokey_pjt/lib/rokey_pjt
+[0.909s] Installing tf_point_transform script to /home/rokey/rokey_ws/install/rokey_pjt/lib/rokey_pjt
+[0.909s] Installing tf_trans script to /home/rokey/rokey_ws/install/rokey_pjt/lib/rokey_pjt
+[0.909s] Installing yolo_depth_checker script to /home/rokey/rokey_ws/install/rokey_pjt/lib/rokey_pjt
+[0.909s] Installing yolo_depth_checker1 script to /home/rokey/rokey_ws/install/rokey_pjt/lib/rokey_pjt
+[0.909s] Installing yolo_detect script to /home/rokey/rokey_ws/install/rokey_pjt/lib/rokey_pjt
+[0.909s] 
+[0.909s] Installed /home/rokey/rokey_ws/build/rokey_pjt
+[0.909s] running symlink_data
+[0.909s] creating /home/rokey/rokey_ws/install/rokey_pjt/share/ament_index
+[0.909s] creating /home/rokey/rokey_ws/install/rokey_pjt/share/ament_index/resource_index
+[0.909s] creating /home/rokey/rokey_ws/install/rokey_pjt/share/ament_index/resource_index/packages
+[0.909s] symbolically linking /home/rokey/rokey_ws/build/rokey_pjt/resource/rokey_pjt -> /home/rokey/rokey_ws/install/rokey_pjt/share/ament_index/resource_index/packages
+[0.909s] symbolically linking /home/rokey/rokey_ws/build/rokey_pjt/package.xml -> /home/rokey/rokey_ws/install/rokey_pjt/share/rokey_pjt
+[0.909s] creating /home/rokey/rokey_ws/install/rokey_pjt/share/rokey_pjt/launch
+[0.909s] symbolically linking /home/rokey/rokey_ws/build/rokey_pjt/launch/detect_ps_map.launch.py -> /home/rokey/rokey_ws/install/rokey_pjt/share/rokey_pjt/launch
+[0.909s] symbolically linking /home/rokey/rokey_ws/build/rokey_pjt/launch/detect_ps_front.launch.py -> /home/rokey/rokey_ws/install/rokey_pjt/share/rokey_pjt/launch
+[0.935s] Invoked command in '/home/rokey/rokey_ws/build/rokey_pjt' returned '0': PYTHONPATH=/home/rokey/rokey_ws/build/rokey_pjt/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/rokey/rokey_ws/install/rokey_pjt/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/rokey/rokey_ws/build/rokey_pjt/build --no-deps symlink_data

@@ -1,0 +1,17 @@
+package.xml
+setup.cfg
+setup.py
+resource/yolov8_ros
+yolov8_ros/2_1_capture_image.py
+yolov8_ros/2_2_capture_auto_image.py
+yolov8_ros/2_3_capture_threading.py
+yolov8_ros/__init__.py
+yolov8_ros/object_detect.py
+yolov8_ros/yolo_basic_test.py
+yolov8_ros.egg-info/PKG-INFO
+yolov8_ros.egg-info/SOURCES.txt
+yolov8_ros.egg-info/dependency_links.txt
+yolov8_ros.egg-info/entry_points.txt
+yolov8_ros.egg-info/requires.txt
+yolov8_ros.egg-info/top_level.txt
+yolov8_ros.egg-info/zip-safe

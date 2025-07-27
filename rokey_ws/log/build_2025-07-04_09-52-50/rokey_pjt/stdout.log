@@ -1,0 +1,38 @@
+running develop
+running egg_info
+writing rokey_pjt.egg-info/PKG-INFO
+writing dependency_links to rokey_pjt.egg-info/dependency_links.txt
+writing entry points to rokey_pjt.egg-info/entry_points.txt
+writing requirements to rokey_pjt.egg-info/requires.txt
+writing top-level names to rokey_pjt.egg-info/top_level.txt
+reading manifest file 'rokey_pjt.egg-info/SOURCES.txt'
+writing manifest file 'rokey_pjt.egg-info/SOURCES.txt'
+running build_ext
+Creating /home/rokey/rokey_ws/install/rokey_pjt/lib/python3.10/site-packages/rokey-pjt.egg-link (link to .)
+Installing beep script to /home/rokey/rokey_ws/install/rokey_pjt/lib/rokey_pjt
+Installing capture_image script to /home/rokey/rokey_ws/install/rokey_pjt/lib/rokey_pjt
+Installing cont_cap_image script to /home/rokey/rokey_ws/install/rokey_pjt/lib/rokey_pjt
+Installing depth_checker script to /home/rokey/rokey_ws/install/rokey_pjt/lib/rokey_pjt
+Installing depth_checker_click script to /home/rokey/rokey_ws/install/rokey_pjt/lib/rokey_pjt
+Installing det_obj script to /home/rokey/rokey_ws/install/rokey_pjt/lib/rokey_pjt
+Installing det_obj_thread script to /home/rokey/rokey_ws/install/rokey_pjt/lib/rokey_pjt
+Installing det_obj_track script to /home/rokey/rokey_ws/install/rokey_pjt/lib/rokey_pjt
+Installing detect_car_info script to /home/rokey/rokey_ws/install/rokey_pjt/lib/rokey_pjt
+Installing detect_car_info2 script to /home/rokey/rokey_ws/install/rokey_pjt/lib/rokey_pjt
+Installing detect_ps_front script to /home/rokey/rokey_ws/install/rokey_pjt/lib/rokey_pjt
+Installing detect_ps_map script to /home/rokey/rokey_ws/install/rokey_pjt/lib/rokey_pjt
+Installing nav_to_pose script to /home/rokey/rokey_ws/install/rokey_pjt/lib/rokey_pjt
+Installing object_xyz script to /home/rokey/rokey_ws/install/rokey_pjt/lib/rokey_pjt
+Installing parking_gui script to /home/rokey/rokey_ws/install/rokey_pjt/lib/rokey_pjt
+Installing rotation_test script to /home/rokey/rokey_ws/install/rokey_pjt/lib/rokey_pjt
+Installing sc_follow_waypoints script to /home/rokey/rokey_ws/install/rokey_pjt/lib/rokey_pjt
+Installing sc_follow_waypoints2 script to /home/rokey/rokey_ws/install/rokey_pjt/lib/rokey_pjt
+Installing sc_follow_waypoints2_1 script to /home/rokey/rokey_ws/install/rokey_pjt/lib/rokey_pjt
+Installing tf_point_transform script to /home/rokey/rokey_ws/install/rokey_pjt/lib/rokey_pjt
+Installing tf_trans script to /home/rokey/rokey_ws/install/rokey_pjt/lib/rokey_pjt
+Installing yolo_depth_checker script to /home/rokey/rokey_ws/install/rokey_pjt/lib/rokey_pjt
+Installing yolo_depth_checker1 script to /home/rokey/rokey_ws/install/rokey_pjt/lib/rokey_pjt
+Installing yolo_detect script to /home/rokey/rokey_ws/install/rokey_pjt/lib/rokey_pjt
+
+Installed /home/rokey/rokey_ws/build/rokey_pjt
+running symlink_data

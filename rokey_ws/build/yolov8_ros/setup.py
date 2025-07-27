@@ -1,0 +1,1 @@
+/home/rokey/rokey_ws/src/yolov8_ros/setup.py

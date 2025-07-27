@@ -1,0 +1,40 @@
+[0.735s] Invoking command in '/home/rokey/rokey_ws/build/rokey_pjt': PYTHONPATH=/home/rokey/rokey_ws/build/rokey_pjt/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/rokey/rokey_ws/install/rokey_pjt/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/rokey/rokey_ws/build/rokey_pjt/build --no-deps symlink_data
+[0.900s] running develop
+[0.993s] running egg_info
+[0.993s] writing rokey_pjt.egg-info/PKG-INFO
+[0.994s] writing dependency_links to rokey_pjt.egg-info/dependency_links.txt
+[0.994s] writing entry points to rokey_pjt.egg-info/entry_points.txt
+[0.994s] writing requirements to rokey_pjt.egg-info/requires.txt
+[0.994s] writing top-level names to rokey_pjt.egg-info/top_level.txt
+[0.995s] reading manifest file 'rokey_pjt.egg-info/SOURCES.txt'
+[0.995s] writing manifest file 'rokey_pjt.egg-info/SOURCES.txt'
+[0.996s] running build_ext
+[0.996s] Creating /home/rokey/rokey_ws/install/rokey_pjt/lib/python3.10/site-packages/rokey-pjt.egg-link (link to .)
+[0.997s] Installing beep script to /home/rokey/rokey_ws/install/rokey_pjt/lib/rokey_pjt
+[0.997s] Installing capture_image script to /home/rokey/rokey_ws/install/rokey_pjt/lib/rokey_pjt
+[0.997s] Installing cont_cap_image script to /home/rokey/rokey_ws/install/rokey_pjt/lib/rokey_pjt
+[0.997s] Installing depth_checker script to /home/rokey/rokey_ws/install/rokey_pjt/lib/rokey_pjt
+[0.997s] Installing depth_checker_click script to /home/rokey/rokey_ws/install/rokey_pjt/lib/rokey_pjt
+[0.997s] Installing det_obj script to /home/rokey/rokey_ws/install/rokey_pjt/lib/rokey_pjt
+[0.997s] Installing det_obj_thread script to /home/rokey/rokey_ws/install/rokey_pjt/lib/rokey_pjt
+[0.997s] Installing det_obj_track script to /home/rokey/rokey_ws/install/rokey_pjt/lib/rokey_pjt
+[0.997s] Installing detect_car_info script to /home/rokey/rokey_ws/install/rokey_pjt/lib/rokey_pjt
+[0.997s] Installing detect_car_info2 script to /home/rokey/rokey_ws/install/rokey_pjt/lib/rokey_pjt
+[0.997s] Installing detect_ps_front script to /home/rokey/rokey_ws/install/rokey_pjt/lib/rokey_pjt
+[0.997s] Installing detect_ps_map script to /home/rokey/rokey_ws/install/rokey_pjt/lib/rokey_pjt
+[0.997s] Installing nav_to_pose script to /home/rokey/rokey_ws/install/rokey_pjt/lib/rokey_pjt
+[0.997s] Installing object_xyz script to /home/rokey/rokey_ws/install/rokey_pjt/lib/rokey_pjt
+[0.997s] Installing parking_gui script to /home/rokey/rokey_ws/install/rokey_pjt/lib/rokey_pjt
+[0.998s] Installing rotation_test script to /home/rokey/rokey_ws/install/rokey_pjt/lib/rokey_pjt
+[0.998s] Installing sc_follow_waypoints script to /home/rokey/rokey_ws/install/rokey_pjt/lib/rokey_pjt
+[0.998s] Installing sc_follow_waypoints2 script to /home/rokey/rokey_ws/install/rokey_pjt/lib/rokey_pjt
+[0.998s] Installing sc_follow_waypoints2_1 script to /home/rokey/rokey_ws/install/rokey_pjt/lib/rokey_pjt
+[0.998s] Installing tf_point_transform script to /home/rokey/rokey_ws/install/rokey_pjt/lib/rokey_pjt
+[0.998s] Installing tf_trans script to /home/rokey/rokey_ws/install/rokey_pjt/lib/rokey_pjt
+[0.998s] Installing yolo_depth_checker script to /home/rokey/rokey_ws/install/rokey_pjt/lib/rokey_pjt
+[0.998s] Installing yolo_depth_checker1 script to /home/rokey/rokey_ws/install/rokey_pjt/lib/rokey_pjt
+[0.998s] Installing yolo_detect script to /home/rokey/rokey_ws/install/rokey_pjt/lib/rokey_pjt
+[0.998s] 
+[0.998s] Installed /home/rokey/rokey_ws/build/rokey_pjt
+[0.998s] running symlink_data
+[1.037s] Invoked command in '/home/rokey/rokey_ws/build/rokey_pjt' returned '0': PYTHONPATH=/home/rokey/rokey_ws/build/rokey_pjt/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/rokey/rokey_ws/install/rokey_pjt/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/rokey/rokey_ws/build/rokey_pjt/build --no-deps symlink_data

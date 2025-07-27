@@ -1,0 +1,26 @@
+[console_scripts]
+beep = rokey_pjt.beep:main
+capture_image = rokey_pjt.tb4_capture_image:main
+cont_cap_image = rokey_pjt.tb4_cont_capture_image:main
+depth_checker = rokey_pjt.depth_checker:main
+depth_checker_click = rokey_pjt.depth_checker_click:main
+det_obj = rokey_pjt.tb4_yolov8_obj_det:main
+det_obj_thread = rokey_pjt.tb4_yolov8_obj_det_thread:main
+det_obj_track = rokey_pjt.tb4_yolov8_obj_det_track:main
+detect_car_info = rokey_pjt.detect_car_info:main
+detect_car_info2 = rokey_pjt.detect_car_info2:main
+detect_ps_front = rokey_pjt.detect_ps_front:main
+detect_ps_map = rokey_pjt.detect_ps_map:main
+nav_to_pose = rokey_pjt.nav_to_pose:main
+object_xyz = rokey_pjt.object_xyz:main
+parking_gui = rokey_pjt.parking_gui:main
+rotation_test = rokey_pjt.rotation_test:main
+sc_follow_waypoints = rokey_pjt.sc_follow_waypoints:main
+sc_follow_waypoints2 = rokey_pjt.sc_follow_waypoints2:main
+sc_follow_waypoints2_1 = rokey_pjt.sc_follow_waypoints2_1:main
+tf_point_transform = rokey_pjt.tf_point_transform:main
+tf_trans = rokey_pjt.tb4_tf_transform:main
+yolo_depth_checker = rokey_pjt.tb4_yolo_bbox_depth_checker:main
+yolo_depth_checker1 = rokey_pjt.yolo_depth_checker:main
+yolo_detect = rokey_pjt.yolo_detect:main
+
