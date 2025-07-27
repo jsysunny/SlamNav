@@ -77,21 +77,25 @@
 
 
 &nbsp;
+
 ## 4. 💻 사용 기술
 
 <img width="816" height="725" alt="image" src="https://github.com/user-attachments/assets/d563c55c-7f65-46f4-bcb0-f74a7fb04136" />
 
 <img width="1222" height="725" alt="image" src="https://github.com/user-attachments/assets/9b252f34-52d7-4b75-a57b-5354d9edc214" />
 
-
 &nbsp;
 
-### GUI 관리자- 차량 감지 dataset 
+---
+
+### 🖥️ 1. GUI 관리자- 차량 감지 dataset 
 <img width="1245" height="525" alt="image" src="https://github.com/user-attachments/assets/78002b5b-3bd6-4f4b-b06f-a6e4219b3b1a" />
 
 &nbsp;
 
-### Vision- 주차공간 object detection
+---
+
+### 📷 2. Vision- 주차공간 object detection
 
 <img width="1245" height="525" alt="image" src="https://github.com/user-attachments/assets/7046baad-fd9c-4c19-a83f-5dea54de9ae9" />
 
@@ -101,7 +105,7 @@
 
 &nbsp;
 
-#### 주차(Disabled, Normal, EV) - 모델 선정 과정
+### - 주차(Disabled, Normal, EV) - 모델 선정 과정
 
 <img width="1133" height="511" alt="image" src="https://github.com/user-attachments/assets/e015f439-020c-4a47-842a-0ffe2b53592b" />
 
@@ -109,25 +113,260 @@
 
 &nbsp;
 
-#### 주차(Disabled, Normal, EV) 경량화 - size 640
+### - 주차(Disabled, Normal, EV) 경량화 - size 640
 <img width="1225" height="290" alt="image" src="https://github.com/user-attachments/assets/fa39804e-624d-4cfa-b4fb-55dd2f57ee89" />
 
 
 &nbsp;
 
-#### 주차(Disabled, Normal, EV) 경량화 - size 320
+### - 주차(Disabled, Normal, EV) 경량화 - size 320
 <img width="1225" height="546" alt="image" src="https://github.com/user-attachments/assets/37a35c70-9827-4d82-8b70-d7393793dc4b" />
 
 &nbsp;
 
-#### 주차(Disabled, Normal, EV) 경량화 - compressed
+### - 주차(Disabled, Normal, EV) 경량화 - compressed
 <img width="1281" height="546" alt="image" src="https://github.com/user-attachments/assets/5c3c9a39-06de-4003-b8c7-eadc7678c5a0" />
 
 <img width="1281" height="546" alt="image" src="https://github.com/user-attachments/assets/97f71119-ff49-4416-afcc-30236d2897d3" />
 
 &nbsp;
-#### 주차 object detection 결론 : size 320, compressed
+### - 주차 object detection 결론 : size 320, compressed
 
+&nbsp;
+
+---
+
+### 📷 3. Vision- 차량 번호판 object detection
+<img width="1278" height="546" alt="image" src="https://github.com/user-attachments/assets/eda5c1a1-e60b-49a5-8fc3-6667fee682f3" />
+
+<img width="1276" height="546" alt="image" src="https://github.com/user-attachments/assets/fd33bc6c-d3a3-42e7-810b-08c46911b246" />
+
+&nbsp;
+
+### - 차량 번호판 경량화 - raw 640
+<img width="1278" height="546" alt="image" src="https://github.com/user-attachments/assets/19eb473f-384b-4668-8adc-f2b3f1a786cf" />
+
+&nbsp;
+
+### - 차량 번호판 경량화 - raw 320
+<img width="1300" height="546" alt="image" src="https://github.com/user-attachments/assets/0ce6920a-7282-4823-9221-9ece1383a116" />
+
+
+&nbsp;
+
+### - 차량 번호판 경량화 - compressed
+<img width="1300" height="546" alt="image" src="https://github.com/user-attachments/assets/0c9bb116-6004-4fa7-9e70-7e6fd96b6d31" />
+
+<img width="1300" height="546" alt="image" src="https://github.com/user-attachments/assets/2d71119b-c871-4044-a123-076e09c872c0" />
+
+&nbsp;
+### - 차량번호판 object detection 결론 : size 320, compressed
+
+&nbsp;
+
+---
+
+### 📷 3. Vision- 차량 번호판 + OCR
+<img width="1300" height="546" alt="image" src="https://github.com/user-attachments/assets/c97afccf-e41b-4736-b577-93d821f8a290" />
+
+<img width="1320" height="546" alt="image" src="https://github.com/user-attachments/assets/a7499120-9edb-4bd6-8a20-58bf8e5fd962" />
+
+<img width="1320" height="546" alt="image" src="https://github.com/user-attachments/assets/e680fc4c-0e18-42de-aa97-57f0ae59813a" />
+
+<img width="1364" height="546" alt="image" src="https://github.com/user-attachments/assets/ea11f3f8-f139-429e-90b2-53474e94d82b" />
+
+<img width="1364" height="546" alt="image" src="https://github.com/user-attachments/assets/26142f5d-a608-4831-8dab-68a0a6e00605" />
+
+
+&nbsp;
+
+---
+
+### 🧠 4. Depth + TF
+<img width="1364" height="546" alt="image" src="https://github.com/user-attachments/assets/226e7082-2ba2-4ff3-a945-b2d8a164cee2" />
+
+<img width="1364" height="546" alt="image" src="https://github.com/user-attachments/assets/f8240b0a-4c88-4f21-badf-53e3651b29f9" />
+
+<img width="1364" height="546" alt="image" src="https://github.com/user-attachments/assets/ec5e113c-55c1-4ed2-aa1c-1be165851815" />
+
+<img width="1364" height="546" alt="image" src="https://github.com/user-attachments/assets/54d01ef7-3afd-4649-8e55-ef0d4c4d2f5f" />
+
+
+&nbsp;
+
+---
+
+### 🗺️ 5. Slam, Nav
+<img width="1364" height="546" alt="image" src="https://github.com/user-attachments/assets/87b5314d-fca2-478d-a7b5-283c7b271388" />
+
+<img width="1364" height="546" alt="image" src="https://github.com/user-attachments/assets/30861604-9caa-4a8a-b1e2-45dbe2c5f56e" />
+
+<img width="1364" height="546" alt="image" src="https://github.com/user-attachments/assets/4595b276-eb61-4c39-bbf7-dbfcc4d88db5" />
+
+<img width="1364" height="546" alt="image" src="https://github.com/user-attachments/assets/9f526667-39c7-487f-a731-27251a419362" />
+
+
+&nbsp;
+
+---
+
+### 📊 6. DB
+<img width="1364" height="546" alt="image" src="https://github.com/user-attachments/assets/a6e40f7c-52eb-47a3-b789-a64cb4645f40" />
+
+<img width="1364" height="546" alt="image" src="https://github.com/user-attachments/assets/df0259da-f53d-4727-8930-63ed553353ce" />
+
+&nbsp;
+
+
+### 📦 Structure
+
+- **Database Name**: `parking`
+- **Measurement**: `parking` (주차 데이터 저장)
+
+&nbsp;
+
+
+### 🧩 Schema
+
+- **Tag Keys**  
+  - `car_type` : 차량 종류 (`normal`, `ev`, `disabled`)  
+  - `license_plate` : 차량 번호  
+  - `location` : 차량 위치 (`A-1`, `B-2` 등)
+
+- **Status Field**  
+  - `status` : `parked` (입차), `exit` (출차)
+
+- **Timestamp**  
+  - 입차 및 출차 시간 자동 기록
+
+&nbsp;
+
+
+### 🅿️ Parking Location (한정 영역)
+
+| 차량 종류     | 위치     |
+|--------------|----------|
+| `normal`     | A-1, A-2 |
+| `ev`         | B-1, B-2 |
+| `disabled`   | C-1, C-2 |
+
+&nbsp;
+
+### 🔄 Data Flow
+
+- **입차 시**
+  - 차량 번호, 차량 타입, 위치, `status: parked`, 입차 시간 기록
+
+- **출차 시**
+  - 차량 번호, 차량 타입, 위치, `status: exit`, 출차 시간 기록
+
+- **관리 방식**
+  - 시간 순으로 입출차 기록 → 효율적인 조회 및 관리
+
+&nbsp;
+
+
+### 🛠️ DB Initialize
+
+- 클라이언트 및 관리자 초기화
+- 기존 데이터 로드 및 조회
+- 최근 30일 이내 입출차 이력 조회
+
+&nbsp;
+
+
+### 🔁 DB Synchronize
+
+- **주기**: 5초
+- **기능**:
+  - DB 주기적 갱신
+  - 주차된 차량 정보 최신 상태로 유지
+
+&nbsp;
+
+
+### 🚘 주차된 차량 정보 조회 로직
+
+#### 1. WITH 절 (임시 테이블 `latest_status`)
+- 차량 번호별 가장 최근 기록만 조회
+- 30일 이내 데이터 필터링
+- 차량 번호로 그룹화
+
+#### 2. Main Query
+- `parking` 테이블과 `latest_status` 조인
+- 조건: 차량 번호 & 최신 시간 일치
+- 결과: 최신순(`DESC`) 정렬
+
+#### 3. 출력 결과
+- `license_plate`, `car_type`, `location`, `status`, `time`
+
+&nbsp;
+
+
+### 🚗 출차 기록 조회
+
+- 기간: 최근 7일  
+- 조건: `status = exit`  
+- 정렬: `time DESC`  
+- 제한: 최근 20개만 반환  
+
+&nbsp;
+
+
+### 🧾 전체 기록 조회
+
+- 기간: 최근 30일  
+- 정렬: `time DESC`  
+- 제한: 100개 레코드 반환  
+- 필드: 차량 번호, 타입, 위치, 상태, 작업 시간  
+
+&nbsp;
+
+
+### 🔍 차량 번호로 조회
+
+- 조건: `license_plate = 차량번호` AND `status = parked`
+- 정렬: `time DESC`
+- 반환: 1건
+
+&nbsp;
+
+
+### 📍 위치 기반 조회
+
+- 조건: `location = 특정위치` AND `status = parked`
+- 정렬: `time DESC`
+- 반환: 1건
+
+&nbsp;
+
+
+### 🔢 차량 번호 뒷자리 4자리로 검색
+
+- 조건: `license_plate LIKE '%1234%'` AND `status = parked`
+- 정렬: `time DESC`
+
+&nbsp;
+
+
+### 🧾 데이터 작성 (입차/출차 이벤트 기록)
+
+- **InfluxDB는 시계열 비정형 DB로 SQL의 INSERT 대신 직접 작성**
+- **형식**: `line protocol`
+
+&nbsp;
+
+#### ✅ 예시
+```plaintext
+parking,car_type=normal,license_plate=12가3456,location=A-1 status="parked" 1722337200000000000
+```
+- Measurement: parking
+- Tags: car_type, license_plate, location
+- Field: status
+- Timestamp: ns 단위 시간
+
+
+&nbsp;
 
 ## 5. 🧭 동작 흐름 요약
 
