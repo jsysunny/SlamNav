@@ -504,6 +504,10 @@ ros2 run rokey_pjt sc_follow_waypoints
 &nbsp;
 
 ## 7. 📷 시연 영상 / 이미지
+![4전체사진](https://github.com/user-attachments/assets/fe4d3253-6a63-4670-8e24-c1dab185203f)
+
+&nbsp;
+
 ### 시연영상
 > https://youtu.be/YpOET5k4NcU
 
